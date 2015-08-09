@@ -29,6 +29,8 @@ namespace Nop.Web.Models.Customer
             public int LicenseId { get; set; }
 
             public DateTime CreatedOn { get; set; }
+
+            public string OrderItemDownloadUrl { get; set; }
         }
         #endregion
     }

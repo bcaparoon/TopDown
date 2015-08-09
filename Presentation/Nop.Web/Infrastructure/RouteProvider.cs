@@ -448,6 +448,11 @@ namespace Nop.Web.Infrastructure
                             new { controller = "Download", action = "GetOrderNoteFile" },
                             new { ordernoteid = @"\d+" },
                             new[] { "Nop.Web.Controllers" });
+            routes.MapLocalizedRoute("ViewVideo",
+                            "download/viewvideo/{OrderItemDownloadUrl}",
+                            new { controller = "Download", action = "ViewVideo", OrderItemDownloadUrl = UrlParameter.Optional },
+                            //new { orderItemId = new GuidConstraint(false) },
+                            new[] { "Nop.Web.Controllers" });
 
             //contact vendor
             routes.MapLocalizedRoute("ContactVendor",

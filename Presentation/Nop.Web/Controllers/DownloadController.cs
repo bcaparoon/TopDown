@@ -6,6 +6,7 @@ using Nop.Services.Catalog;
 using Nop.Services.Localization;
 using Nop.Services.Media;
 using Nop.Services.Orders;
+using Nop.Web.Models.Customer;
 
 namespace Nop.Web.Controllers
 {
@@ -99,7 +100,9 @@ namespace Nop.Web.Controllers
                 _orderService.UpdateOrder(order);
 
                 //return result
-                return new RedirectResult(download.DownloadUrl);
+                //return new RedirectResult(download.DownloadUrl);
+                //Here is where we simply redirect to another page. -- Ben
+                return RedirectToRoute("ViewVideo", new { OrderItemDownloadUrl = download.DownloadUrl });
             }
             
             //binary download
@@ -195,6 +198,12 @@ namespace Nop.Web.Controllers
             string fileName = !String.IsNullOrWhiteSpace(download.Filename) ? download.Filename : orderNote.Id.ToString();
             string contentType = !String.IsNullOrWhiteSpace(download.ContentType) ? download.ContentType : "application/octet-stream";
             return new FileContentResult(download.DownloadBinary, contentType) { FileDownloadName = fileName + download.Extension };
+        }
+
+        public ActionResult ViewVideo(string OrderItemDownloadUrl)
+        {
+            ViewBag.OrderItemDownloadUrl = OrderItemDownloadUrl;
+            return View();
         }
     }
 }

@@ -1978,6 +1978,7 @@
     <Content Include="Views\Product\_DeliveryInfo.cshtml" />
     <Content Include="Views\Product\_Availability.cshtml" />
     <Content Include="Views\Catalog\_CatalogSelectors.cshtml" />
+    <Content Include="Views\Customer\ViewVideo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plugins\bin\" />
