@@ -1,0 +1,34 @@
+﻿@model CustomerDownloadableProductsModel
+@using Nop.Web.Models.Customer;
+@{
+    Layout = "~/Views/Shared/_ColumnsTwo.cshtml";
+
+    //title
+    Html.AddTitleParts(T("PageTitle.Account").Text);
+
+    var ViewBagOrderItemDownloadUrl = ViewBag.OrderItemDownloadUrl;
+}
+@section left
+{
+    @Html.Action("CustomerNavigation", "Customer", new { selectedTabId = CustomerNavigationEnum.DownloadableProducts })
+}
+
+<div class="page account-page downloadable-products-page">
+    <div class="page-title">
+        <h1>@T("Account.MyAccount") - @T("Account.DownloadableProducts")</h1>
+    </div>
+    <div class="page-body">
+        @if (Model.Items.Count > 0)
+        {
+            <div>
+                <iframe src="@ViewBagOrderItemDownloadUrl"></iframe>
+            </div>
+        }
+        else
+        {
+            <div class="no-data">
+                @T("DownloadableProducts.NoItems")
+            </div>
+        }
+    </div>
+</div>
