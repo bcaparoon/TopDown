@@ -1585,6 +1585,17 @@ namespace Nop.Web.Controllers
             return View(model);
         }
 
+
+
+        public ActionResult ViewVideo(Guid orderItemId)
+        {
+            var orderItem = _orderService.GetOrderItemByGuid(orderItemId);
+            var productIdUrl = _downloadService.GetDownloadById(orderItem.Product.DownloadId);
+            var OrderItemDownloadUrl = productIdUrl.DownloadUrl;
+
+            ViewBag.OrderItemDownloadUrl = OrderItemDownloadUrl;
+            return View();
+        }
         #endregion
 
         #region My account / Change password

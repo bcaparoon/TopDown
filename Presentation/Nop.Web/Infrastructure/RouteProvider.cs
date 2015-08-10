@@ -2,6 +2,7 @@
 using System.Web.Routing;
 using Nop.Web.Framework.Localization;
 using Nop.Web.Framework.Mvc.Routes;
+using System.Web;
 
 namespace Nop.Web.Infrastructure
 {
@@ -449,8 +450,8 @@ namespace Nop.Web.Infrastructure
                             new { ordernoteid = @"\d+" },
                             new[] { "Nop.Web.Controllers" });
             routes.MapLocalizedRoute("ViewVideo",
-                            "download/viewvideo/{OrderItemDownloadUrl}",
-                            new { controller = "Download", action = "ViewVideo", OrderItemDownloadUrl = UrlParameter.Optional },
+                            "customer/viewvideo/{OrderItemID}",
+                            new { controller = "Customer", action = "ViewVideo", OrderItemID = UrlParameter.Optional },
                             //new { orderItemId = new GuidConstraint(false) },
                             new[] { "Nop.Web.Controllers" });
 

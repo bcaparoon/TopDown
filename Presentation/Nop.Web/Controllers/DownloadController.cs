@@ -7,6 +7,7 @@ using Nop.Services.Localization;
 using Nop.Services.Media;
 using Nop.Services.Orders;
 using Nop.Web.Models.Customer;
+using System.Web;
 
 namespace Nop.Web.Controllers
 {
@@ -102,7 +103,7 @@ namespace Nop.Web.Controllers
                 //return result
                 //return new RedirectResult(download.DownloadUrl);
                 //Here is where we simply redirect to another page. -- Ben
-                return RedirectToRoute("ViewVideo", new { OrderItemDownloadUrl = download.DownloadUrl });
+                return RedirectToRoute("ViewVideo", new { orderItemId = orderItemId });
             }
             
             //binary download
